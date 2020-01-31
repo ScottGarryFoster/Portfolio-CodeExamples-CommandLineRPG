@@ -23,5 +23,5 @@ void TitleScreen::Output()
 	int number;
 	cin >> number;
 	if (number > 5)
-		NewScreenType = ScreenTypes::TitleScreen;
+		NewScreenType = ScreenTypes::TextScene;
 }

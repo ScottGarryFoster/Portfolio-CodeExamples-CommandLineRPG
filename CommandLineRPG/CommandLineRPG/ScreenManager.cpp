@@ -1,6 +1,7 @@
 #include "ScreenManager.h"
 
-
+#include "TitleScreen.h"
+#include "TextScene.h"
 
 ScreenManager::ScreenManager()
 {
@@ -25,15 +26,17 @@ void ScreenManager::Output()
 		delete m_currentScreen;
 		InstantiateNewScreen(newScreenType);
 		m_currentScreen->Setup(m_player, passover);
-		system("CLS");
 	}
+	system("CLS");
 }
 
 void ScreenManager::InstantiateNewScreen(ScreenTypes screenType)
 {
 	switch (screenType)
 	{
-
+	case ScreenTypes::TextScene:
+		m_currentScreen = new TextScene();
+		return;
 	case ScreenTypes::TitleScreen:
 	default:
 		m_currentScreen = new TitleScreen();
