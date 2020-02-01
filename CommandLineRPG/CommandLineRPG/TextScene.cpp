@@ -1,6 +1,7 @@
 #include "TextScene.h"
+#include "CharacterImage.h"
 
-TextScene::TextScene()
+TextScene::TextScene() : Screen()
 {
 
 }
@@ -21,5 +22,13 @@ void TextScene::Output()
 	int number;
 	cin >> number;
 	if (number > 5)
-		NewScreenType = ScreenTypes::TitleScreen;
+		//NewScreenType = ScreenTypes::TitleScreen;
+	{
+		CharacterImage* charImage = new CharacterImage();
+		charImage->loadFromFile("CharacterImage/bat_01.txt");
+		charImage->print();
+	}
+
+	int number2;
+	cin >> number2;
 }

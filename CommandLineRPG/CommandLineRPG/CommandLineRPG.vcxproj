@@ -151,20 +151,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CharacterImage.cpp" />
+    <ClCompile Include="CharCanvas.cpp" />
     <ClCompile Include="CommandLineRPG.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="ScreenManager.cpp" />
     <ClCompile Include="TextScene.cpp" />
     <ClCompile Include="TitleScreen.cpp" />
+    <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CharacterImage.h" />
+    <ClInclude Include="CharCanvas.h" />
     <ClInclude Include="IndependentEnumsAndStructs.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="ScreenManager.h" />
     <ClInclude Include="TextScene.h" />
     <ClInclude Include="TitleScreen.h" />
+    <ClInclude Include="Utility.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

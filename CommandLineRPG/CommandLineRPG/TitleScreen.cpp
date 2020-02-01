@@ -2,7 +2,7 @@
 
 
 
-TitleScreen::TitleScreen()
+TitleScreen::TitleScreen() : Screen()
 {
 }
 
