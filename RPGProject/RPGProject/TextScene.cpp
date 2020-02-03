@@ -7,6 +7,8 @@ TextScene::TextScene() : Screen()
 
 	mCanvas = new CharCanvas(CHARACTER_WIDTH, CANVAS_HEIGHT);
 	mCanvas->AddImage(mImage, 1, 0, 0);
+
+	mCanvasInformation = new CharCanvas(CHARACTER_WIDTH, 10);
 }
 TextScene::~TextScene()
 {
@@ -23,8 +25,11 @@ void TextScene::Output()
 {
 	mCanvas->Draw();
 	DrawSeam();
-	if (p_player != nullptr)
-		p_player->printBasicStats();
+	mCanvasInformation->clearGrid();
+	mCanvasInformation->AddGridToGrid(p_player->getInformationPanel(), p_player->getWidth(), p_player->getHeight());
+	mCanvasInformation->Draw();
+	//if (p_player != nullptr)
+	//	p_player->printBasicStats();
 	int number;
 	cin >> number;
 	if (number > 5)

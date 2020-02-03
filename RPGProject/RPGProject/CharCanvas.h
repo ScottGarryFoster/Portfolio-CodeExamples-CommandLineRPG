@@ -25,11 +25,12 @@ public:
 	void clearGrid();
 
 	void AddImage(CharacterImage *image, int layer, int locationX = 0, int locationY = 0);
+	void AddGridToGrid(const char** charArray, int charArrayWidth, int charArrayHeight, int locationX = 0, int locationY = 0);
 
 	void Draw();
 private:
 	void RedrawGrid();
-	void AddLayerToGrid(CharacterImage *image, Vector2Int *point);
+	void AddImageToGrid(CharacterImage *image, Vector2Int *point);
 
 	bool safetyCheck(CharacterImage* image);
 	bool safetyCheck(Vector2Int* vector);

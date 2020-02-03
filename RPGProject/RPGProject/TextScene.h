@@ -9,6 +9,7 @@ class TextScene :
 {
 	CharacterImage* mImage;
 	CharCanvas* mCanvas;
+	CharCanvas* mCanvasInformation;
 public:
 	TextScene();
 	virtual ~TextScene();

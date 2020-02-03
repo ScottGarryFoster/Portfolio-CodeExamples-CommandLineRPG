@@ -64,7 +64,7 @@ void CharCanvas::clearGrid()
 	if (!m_loaded) createEmptyGrid(m_width, m_height);
 	for (int r = 0; r < m_height; r++)
 		for (int c = 0; c < m_width; c++)
-			m_grid[r][c] = '@';
+			m_grid[r][c] = ' ';
 }
 
 void CharCanvas::AddImage(CharacterImage* image, int layer, int locationX, int locationY)
@@ -96,9 +96,9 @@ void CharCanvas::RedrawGrid()
 	for (int i = 0; i < m_imageLayersLength; i++)
 		if (p_imageLayers[i] != nullptr)
 			if (m_imageLayerPosition[i] != nullptr)
-				AddLayerToGrid(p_imageLayers[i], m_imageLayerPosition[i]);
+				AddImageToGrid(p_imageLayers[i], m_imageLayerPosition[i]);
 }
-void CharCanvas::AddLayerToGrid(CharacterImage* image, Vector2Int* point)
+void CharCanvas::AddImageToGrid(CharacterImage* image, Vector2Int* point)
 {
 	if (!safetyCheck(image)) return;//Exception safety
 	if (!safetyCheck(point)) return;//Exception safety
@@ -117,6 +117,19 @@ void CharCanvas::AddLayerToGrid(CharacterImage* image, Vector2Int* point)
 			if (imageCharacter != alphaCharacter)
 				m_grid[r][c] = imageCharacter;
 		}
+}
+
+void CharCanvas::AddGridToGrid(const char** charArray, int charArrayWidth, int charArrayHeight, int locationX, int locationY)
+{
+	if (!m_loaded) return;
+	for(int r = 0; r < charArrayHeight; r++)
+		for (int c = 0; c < charArrayWidth; c++)
+		{
+			if (r + locationY >= m_height) break;
+			if (c + locationX >= m_width) break;
+			m_grid[r + locationY][c + locationX] = charArray[r][c];
+		}
+	m_redraw = false;
 }
 
 bool CharCanvas::safetyCheck(CharacterImage* image)

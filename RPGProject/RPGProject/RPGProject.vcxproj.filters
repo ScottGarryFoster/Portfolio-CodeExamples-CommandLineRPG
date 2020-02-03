@@ -45,6 +45,9 @@
     <ClCompile Include="Vector2Int.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InformationPanels.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CharacterImage.h">
@@ -75,6 +78,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vector2Int.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InformationPanels.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
