@@ -1,4 +1,9 @@
-﻿  CharCanvas.cpp
-D:\GameDevelopment\PortfolioCodeExamples\Portfolio-CodeExamples-CommandLineRPG2\RPGProject\RPGProject\CharCanvas.cpp(142,21): warning C4101: 'e': unreferenced local variable
-D:\GameDevelopment\PortfolioCodeExamples\Portfolio-CodeExamples-CommandLineRPG2\RPGProject\RPGProject\CharCanvas.cpp(156,21): warning C4101: 'e': unreferenced local variable
+﻿  InformationPanels.cpp
+  Player.cpp
+  RPGProject.cpp
+  Screen.cpp
+  ScreenManager.cpp
+  TextScene.cpp
+  TitleScreen.cpp
+  Generating Code...
   RPGProject.vcxproj -> D:\GameDevelopment\PortfolioCodeExamples\Portfolio-CodeExamples-CommandLineRPG2\RPGProject\Debug\RPGProject.exe
