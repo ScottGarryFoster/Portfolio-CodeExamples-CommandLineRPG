@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClCompile Include="CharacterImage.cpp" />
     <ClCompile Include="CharCanvas.cpp" />
+    <ClCompile Include="InformationField.cpp" />
     <ClCompile Include="InformationPanels.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RPGProject.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="CharacterImage.h" />
     <ClInclude Include="CharCanvas.h" />
     <ClInclude Include="IndependentEnumsAndStructs.h" />
+    <ClInclude Include="InformationField.h" />
     <ClInclude Include="InformationPanels.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Screen.h" />

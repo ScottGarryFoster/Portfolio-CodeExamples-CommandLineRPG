@@ -48,6 +48,9 @@
     <ClCompile Include="InformationPanels.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InformationField.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CharacterImage.h">
@@ -81,6 +84,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="InformationPanels.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InformationField.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
