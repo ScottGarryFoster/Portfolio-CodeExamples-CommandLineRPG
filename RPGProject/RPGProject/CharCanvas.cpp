@@ -26,8 +26,12 @@ CharCanvas::~CharCanvas()
 
 	//The vector2Ints for layer position are ours:
 	for (int i = 0; i < m_imageLayersLength; i++)
+	{
 		if (m_imageLayerPosition[i] != nullptr)
 			delete m_imageLayerPosition[i];
+		if (m_informationPanelPosition[i] != nullptr)
+			delete m_informationPanelPosition[i];
+	}
 }
 
 void CharCanvas::cleanForLoading()
@@ -79,9 +83,29 @@ void CharCanvas::AddImage(CharacterImage* image, int layer, int locationX, int l
 	m_redraw = true;
 }
 
+void CharCanvas::AddInformationPanel(InformationPanels* informationPanel, int layer, int locationX, int locationY)
+{
+	if (layer < 0) return;
+	if (layer >= m_imageLayersLength) return;
+	p_informationPanels[layer] = informationPanel;
+	if (m_informationPanelPosition[layer] == nullptr)
+		m_informationPanelPosition[layer] = new Vector2Int(locationX, locationY);
+	else
+		m_informationPanelPosition[layer]->set(locationX, locationY);
+	m_redraw = true;
+	
+	for (int i = 0; i < m_imageLayersLength; i++)//If there is a single information panel
+		if (p_informationPanels[i] != nullptr)
+		{
+			m_usingInformationPanels = true;//Always draw
+			return;
+		}
+	m_usingInformationPanels = false;
+}
+
 void CharCanvas::Draw()
 {
-	if(m_redraw)RedrawGrid();
+	if(m_redraw || m_usingInformationPanels)RedrawGrid();
 	for (int r = 0; r < m_height; r++)
 	{
 		for (int c = 0; c < m_width; c++)
@@ -97,6 +121,12 @@ void CharCanvas::RedrawGrid()
 		if (p_imageLayers[i] != nullptr)
 			if (m_imageLayerPosition[i] != nullptr)
 				AddImageToGrid(p_imageLayers[i], m_imageLayerPosition[i]);
+
+	if (!m_usingInformationPanels) return;
+	for (int i = 0; i < m_imageLayersLength; i++)
+		if (p_informationPanels[i] != nullptr)
+			if (m_informationPanelPosition[i] != nullptr)
+				AddGridToGrid(p_informationPanels[i]->outputPanel(), p_informationPanels[i]->getWidth(), p_informationPanels[i]->getHeight(), m_informationPanelPosition[i]->x, m_informationPanelPosition[i]->y);
 }
 void CharCanvas::AddImageToGrid(CharacterImage* image, Vector2Int* point)
 {

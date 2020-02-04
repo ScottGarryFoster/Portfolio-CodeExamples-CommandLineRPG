@@ -19,14 +19,16 @@ void TextScene::Setup(Player* player, void* Passover)
 {
 	p_player = player;
 	p_haveSetup = true;
+	mCanvasInformation->AddInformationPanel(p_player->getInfoPanel(), 0, 0, 0);
 }
 
 void TextScene::Output()
 {
 	mCanvas->Draw();
 	DrawSeam();
-	mCanvasInformation->clearGrid();
-	mCanvasInformation->AddGridToGrid(p_player->getInformationPanel(), p_player->getWidth(), p_player->getHeight());
+	//mCanvasInformation->clearGrid();
+	
+	//mCanvasInformation->AddGridToGrid(p_player->getInformationPanel(), p_player->getWidth(), p_player->getHeight());
 	mCanvasInformation->Draw();
 	//if (p_player != nullptr)
 	//	p_player->printBasicStats();
@@ -36,7 +38,7 @@ void TextScene::Output()
 	{
 		cout << "hey" << endl;
 	}
-
-	int number2;
-	cin >> number2;
+	p_player->addHealth(number);
+	//int number2;
+	//cin >> number2;
 }

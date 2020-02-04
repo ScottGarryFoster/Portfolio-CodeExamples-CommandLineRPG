@@ -1,18 +1,2 @@
-﻿  CharacterImage.cpp
-C:\Users\fv033074\Documents\GitHub\Portfolio-CodeExamples-CommandLineRPG\RPGProject\RPGProject\CharacterImage.cpp(41): warning C4018: '<': signed/unsigned mismatch
-C:\Users\fv033074\Documents\GitHub\Portfolio-CodeExamples-CommandLineRPG\RPGProject\RPGProject\CharacterImage.cpp(50): warning C4018: '<': signed/unsigned mismatch
-  CharCanvas.cpp
-C:\Users\fv033074\Documents\GitHub\Portfolio-CodeExamples-CommandLineRPG\RPGProject\RPGProject\CharCanvas.cpp(142): warning C4101: 'e': unreferenced local variable
-C:\Users\fv033074\Documents\GitHub\Portfolio-CodeExamples-CommandLineRPG\RPGProject\RPGProject\CharCanvas.cpp(156): warning C4101: 'e': unreferenced local variable
-  InformationPanels.cpp
-  Player.cpp
-  RPGProject.cpp
-  Screen.cpp
-  ScreenManager.cpp
-  TextScene.cpp
-  TitleScreen.cpp
-  Utility.cpp
-C:\Users\fv033074\Documents\GitHub\Portfolio-CodeExamples-CommandLineRPG\RPGProject\RPGProject\Utility.cpp(11): warning C4018: '<': signed/unsigned mismatch
-  Vector2Int.cpp
-  Generating Code...
+﻿  TextScene.cpp
   RPGProject.vcxproj -> C:\Users\fv033074\Documents\GitHub\Portfolio-CodeExamples-CommandLineRPG\RPGProject\Debug\RPGProject.exe

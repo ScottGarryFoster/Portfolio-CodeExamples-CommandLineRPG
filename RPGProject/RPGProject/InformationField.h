@@ -72,5 +72,8 @@ public:
 	const bool isVaild() { return m_isValid; }
 
 	string buildOutput();
+private:
+	string returnEntryOne();
+	string returnEntryTwo();
 };
 

@@ -11,12 +11,18 @@ Player::Player()
 	m_statWisdom = 0;
 	m_statCharisma = 0;
 
+	m_heathLabel = "HP";
 	m_activeHealth = 5;
 	m_activeWisdom = 0;
 
 	m_gridUpdated = false;
 	m_informationPanelWidth = 17;
 	m_informationPanelHeight = 3;
+
+	m_infoPanel = new InformationPanels();
+	m_infoPanel->namePanel("Player");
+	InformationField *fieldHealth = new InformationField(InformationField::InfoField_Type::ift_labelValueMax, &m_heathLabel, InformationField::InfoField_EntryType::ifet_int, &m_activeHealth, InformationField::InfoField_EntryType::ifet_int, &m_statConstitution);
+	m_infoPanel->addNewField(fieldHealth, 0);
 }
 
 

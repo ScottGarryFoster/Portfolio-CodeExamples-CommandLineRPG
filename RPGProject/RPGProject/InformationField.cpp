@@ -649,5 +649,58 @@ string InformationField::buildOutput()
 	case InfoField_Type::ift_text:
 		if (m_fieldName == nullptr) return "";
 		return *m_fieldName;
+	case InfoField_Type::ift_textValue:
+		if (m_fieldName == nullptr) return "";
+		return *m_fieldName + " : " + returnEntryOne();
+	case InfoField_Type::ift_labelValueMax:
+		if (m_fieldName == nullptr) return "";
+		return *m_fieldName + " : " + returnEntryOne() + " / " + returnEntryTwo();
 	}
+	return "";
+}
+
+string InformationField::returnEntryOne()
+{
+	switch (m_entry1Type)
+	{
+	case InfoField_EntryType::ifet_int:
+		if (m_iEntry1 == nullptr) return "";
+		return to_string(*m_iEntry1);
+	case InfoField_EntryType::ifet_float:
+		if (m_fEntry1 == nullptr) return "";
+		return to_string(*m_fEntry1);
+	case InfoField_EntryType::ifet_double:
+		if (m_dEntry1 == nullptr) return "";
+		return to_string(*m_dEntry1);
+	case InfoField_EntryType::ifet_string:
+		if (m_sEntry1 == nullptr) return "";
+		return *m_sEntry1;
+	case InfoField_EntryType::ifet_bool:
+		if (m_bEntry1 == nullptr) return "";
+		if(*m_bEntry1) return "True"; else return "False";
+	}
+	return "";
+}
+
+string InformationField::returnEntryTwo()
+{
+	switch (m_entry2Type)
+	{
+	case InfoField_EntryType::ifet_int:
+		if (m_iEntry2 == nullptr) return "";
+		return to_string(*m_iEntry2);
+	case InfoField_EntryType::ifet_float:
+		if (m_fEntry2 == nullptr) return "";
+		return to_string(*m_fEntry2);
+	case InfoField_EntryType::ifet_double:
+		if (m_dEntry2 == nullptr) return "";
+		return to_string(*m_dEntry2);
+	case InfoField_EntryType::ifet_string:
+		if (m_sEntry2 == nullptr) return "";
+		return *m_sEntry2;
+	case InfoField_EntryType::ifet_bool:
+		if (m_bEntry2 == nullptr) return "";
+		if (*m_bEntry1) return "True"; else return "False";
+	}
+	return "";
 }

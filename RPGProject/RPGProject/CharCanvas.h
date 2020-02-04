@@ -1,6 +1,7 @@
 #pragma once
 #include "CharacterImage.h"
 #include "Vector2Int.h"
+#include "InformationPanels.h"
 
 using namespace std;
 
@@ -12,10 +13,14 @@ class CharCanvas
 	bool m_loaded;
 	int m_imageLayersLength;//Length of the image layer array
 	Vector2Int* m_imageLayerPosition[5]; //Top Left position of the layers.
+	Vector2Int* m_informationPanelPosition[5]; //Top Left position of the informaitonPanel Layers.
 
 	bool m_redraw;//If true a redraw is needed.
+	bool m_usingInformationPanels;//If using Information Panels. If true a redraw is always used.
+
 protected:
 	CharacterImage* p_imageLayers[5];//We're not responsible for deleting these
+	InformationPanels* p_informationPanels[5];//We're not responsible for deleting these
 public:
 	CharCanvas(int width, int height);
 	virtual ~CharCanvas();
@@ -25,6 +30,7 @@ public:
 	void clearGrid();
 
 	void AddImage(CharacterImage *image, int layer, int locationX = 0, int locationY = 0);
+	void AddInformationPanel(InformationPanels* informationPanel, int layer, int locationX = 0, int locationY = 0);
 	void AddGridToGrid(const char** charArray, int charArrayWidth, int charArrayHeight, int locationX = 0, int locationY = 0);
 
 	void Draw();
