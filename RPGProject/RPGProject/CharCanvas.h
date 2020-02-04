@@ -12,15 +12,15 @@ class CharCanvas
 	char** m_grid;
 	bool m_loaded;
 	int m_imageLayersLength;//Length of the image layer array
-	Vector2Int* m_imageLayerPosition[5]; //Top Left position of the layers.
-	Vector2Int* m_informationPanelPosition[5]; //Top Left position of the informaitonPanel Layers.
+	Vector2Int* m_imageLayerPosition[5] = { nullptr }; //Top Left position of the layers.
+	Vector2Int* m_informationPanelPosition[5] = { nullptr }; //Top Left position of the informaitonPanel Layers.
 
 	bool m_redraw;//If true a redraw is needed.
 	bool m_usingInformationPanels;//If using Information Panels. If true a redraw is always used.
 
 protected:
-	CharacterImage* p_imageLayers[5];//We're not responsible for deleting these
-	InformationPanels* p_informationPanels[5];//We're not responsible for deleting these
+	CharacterImage* p_imageLayers[5] = { nullptr };//We're not responsible for deleting these
+	InformationPanels* p_informationPanels[5] = { nullptr };//We're not responsible for deleting these
 public:
 	CharCanvas(int width, int height);
 	virtual ~CharCanvas();
@@ -40,4 +40,5 @@ private:
 
 	bool safetyCheck(CharacterImage* image);
 	bool safetyCheck(Vector2Int* vector);
+	bool safetyCheck(InformationPanels* panel);
 };

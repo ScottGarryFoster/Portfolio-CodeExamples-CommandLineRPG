@@ -5,33 +5,30 @@ TextScene::TextScene() : Screen()
 	mImage = new CharacterImage();
 	mImage->loadFromFile("CharacterImage/bat_01.txt");
 
-	mCanvas = new CharCanvas(CHARACTER_WIDTH, CANVAS_HEIGHT);
-	mCanvas->AddImage(mImage, 1, 0, 0);
+	m_Canvas = new CharCanvas(CHARACTER_WIDTH, CANVAS_HEIGHT);
+	m_Canvas->AddImage(mImage, 1, 0, 0);
 
-	mCanvasInformation = new CharCanvas(CHARACTER_WIDTH, 10);
+	m_CanvasInformation = new CharCanvas(CHARACTER_WIDTH, 10);
 }
 TextScene::~TextScene()
 {
-
+	if (m_CanvasInformation != nullptr) delete m_CanvasInformation;
+	if (m_Canvas != nullptr) delete m_Canvas;
 }
 
 void TextScene::Setup(Player* player, void* Passover)
 {
 	p_player = player;
 	p_haveSetup = true;
-	mCanvasInformation->AddInformationPanel(p_player->getInfoPanel(), 0, 0, 0);
+	//Setup a link to the canvas
+	m_CanvasInformation->AddInformationPanel(p_player->getInfoPanel(), 0, 0, 0);
 }
 
 void TextScene::Output()
 {
-	mCanvas->Draw();
+	m_Canvas->Draw();
 	DrawSeam();
-	//mCanvasInformation->clearGrid();
-	
-	//mCanvasInformation->AddGridToGrid(p_player->getInformationPanel(), p_player->getWidth(), p_player->getHeight());
-	mCanvasInformation->Draw();
-	//if (p_player != nullptr)
-	//	p_player->printBasicStats();
+	m_CanvasInformation->Draw();
 	int number;
 	cin >> number;
 	if (number > 5)
@@ -39,6 +36,4 @@ void TextScene::Output()
 		cout << "hey" << endl;
 	}
 	p_player->addHealth(number);
-	//int number2;
-	//cin >> number2;
 }

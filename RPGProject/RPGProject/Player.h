@@ -9,39 +9,31 @@ using namespace std;
 
 class Player
 {
+	string m_strengthLabel;
 	int m_statStrength;
+	string m_dexterityLabel;
 	int m_statDexterity;
 	int m_statConstitution;
+	string m_intelligenceLabel;
 	int m_statIntelligence;
 	int m_statWisdom;
+	string m_charismaLabel;
 	int m_statCharisma;
 
 	string m_heathLabel;
 	int m_activeHealth;
+	string m_wisdomLabel;
 	int m_activeWisdom;
 
-	bool m_gridUpdated;
-	char** m_informationPanel;
-	int m_informationPanelWidth;
-	int m_informationPanelHeight;
+	string m_statTitle;
 
 	InformationPanels* m_infoPanel;
 public:
 	Player();
 	virtual ~Player();
 
-	void printBasicStats();
-	const char** getInformationPanel();
 	InformationPanels* getInfoPanel() { return m_infoPanel; }
 
-	const int getWidth(){return m_informationPanelWidth;}
-	const int getHeight(){return m_informationPanelHeight;}
-
 	void addHealth(int number) { m_activeHealth += number; }
-private:
-	void makeInformationPanel();
-	void createInformationPanel();
-	string makeTopBottomLine();
-	string makeBasicHealthLine();
 };
 

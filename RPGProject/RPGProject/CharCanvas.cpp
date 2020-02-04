@@ -17,6 +17,7 @@ CharCanvas::CharCanvas(int width, int height)
 	}
 
 	m_redraw = true;
+	m_usingInformationPanels = false;
 }
 
 CharCanvas::~CharCanvas()
@@ -120,13 +121,23 @@ void CharCanvas::RedrawGrid()
 	for (int i = 0; i < m_imageLayersLength; i++)
 		if (p_imageLayers[i] != nullptr)
 			if (m_imageLayerPosition[i] != nullptr)
-				AddImageToGrid(p_imageLayers[i], m_imageLayerPosition[i]);
+			{
+				if (safetyCheck(p_imageLayers[i]))//Does it actually exist?
+					AddImageToGrid(p_imageLayers[i], m_imageLayerPosition[i]);
+				else
+					p_imageLayers[i] = nullptr;//Something has deleted it so forget about it
+			}
 
 	if (!m_usingInformationPanels) return;
 	for (int i = 0; i < m_imageLayersLength; i++)
 		if (p_informationPanels[i] != nullptr)
 			if (m_informationPanelPosition[i] != nullptr)
-				AddGridToGrid(p_informationPanels[i]->outputPanel(), p_informationPanels[i]->getWidth(), p_informationPanels[i]->getHeight(), m_informationPanelPosition[i]->x, m_informationPanelPosition[i]->y);
+			{
+				if (safetyCheck(p_informationPanels[i]))//Does it actually exist?
+					AddGridToGrid(p_informationPanels[i]->outputPanel(), p_informationPanels[i]->getWidth(), p_informationPanels[i]->getHeight(), m_informationPanelPosition[i]->x, m_informationPanelPosition[i]->y);
+				else
+					p_informationPanels[i] = nullptr;//Something has deleted it so forget about it
+			}
 }
 void CharCanvas::AddImageToGrid(CharacterImage* image, Vector2Int* point)
 {
@@ -182,6 +193,20 @@ bool CharCanvas::safetyCheck(Vector2Int* vector)
 	try
 	{
 		vector->awake();
+	}
+	catch (exception & e)
+	{
+		return false;//e.what() if I wanted to debug
+	}
+	return true;
+}
+
+bool CharCanvas::safetyCheck(InformationPanels* panel)
+{
+	if (panel == nullptr) return false;
+	try
+	{
+		panel->awake();
 	}
 	catch (exception & e)
 	{

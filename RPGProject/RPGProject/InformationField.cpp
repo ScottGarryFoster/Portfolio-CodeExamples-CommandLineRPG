@@ -651,10 +651,10 @@ string InformationField::buildOutput()
 		return *m_fieldName;
 	case InfoField_Type::ift_textValue:
 		if (m_fieldName == nullptr) return "";
-		return *m_fieldName + " : " + returnEntryOne();
+		return *m_fieldName + ": " + returnEntryOne();
 	case InfoField_Type::ift_labelValueMax:
 		if (m_fieldName == nullptr) return "";
-		return *m_fieldName + " : " + returnEntryOne() + " / " + returnEntryTwo();
+		return *m_fieldName + ": " + returnEntryOne() + "/" + returnEntryTwo();
 	}
 	return "";
 }

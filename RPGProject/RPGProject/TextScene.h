@@ -8,8 +8,8 @@ class TextScene :
 	public Screen
 {
 	CharacterImage* mImage;
-	CharCanvas* mCanvas;
-	CharCanvas* mCanvasInformation;
+	CharCanvas* m_Canvas;
+	CharCanvas* m_CanvasInformation;
 public:
 	TextScene();
 	virtual ~TextScene();
