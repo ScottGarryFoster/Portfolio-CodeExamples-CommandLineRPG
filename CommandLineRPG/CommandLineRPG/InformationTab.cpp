@@ -84,13 +84,14 @@ const char** InformationTab::outputPanel()
 	for (int i = 0; i < m_numberOfOptions; i++)
 		enterCenterText(m_tabLabels[i], tabSize - 1, tabSize * i + 1, (*p_selectedTab == i) ? '#' : ' ');
 
-	cout << "Other output:" << endl;
+	m_grid[1][m_tabWidth - 1] = '|';//Helps when the math rounds off
+	/*cout << "Other output:" << endl;
 	for (int i = 0; i < m_tabHeight; i++)
 	{
 		for (int j = 0; j < m_tabWidth; j++)
 			cout << m_grid[i][j];
 		cout << endl;
-	}
+	}*/
 	return const_cast<const char**>(m_grid);
 }
 

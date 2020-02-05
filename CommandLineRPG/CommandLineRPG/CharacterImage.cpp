@@ -10,7 +10,9 @@ CharacterImage::CharacterImage()
 }
 CharacterImage::~CharacterImage()
 {
-
+	for (int c = 0; c < m_height; c++)
+		delete[] m_grid[c];
+	delete[] m_grid;
 }
 
 void CharacterImage::loadFromFile(string fileName)

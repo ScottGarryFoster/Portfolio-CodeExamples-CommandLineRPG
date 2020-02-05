@@ -59,8 +59,8 @@ const char** InformationPanels::outputPanel()
 {
 	updateGridWithTitle();
 	int linesSuccessful = 0;
-	if (m_informationTabs != nullptr)
-		addTabsToGrid(linesSuccessful);
+	//if (m_informationTabs != nullptr)
+	//	addTabsToGrid(linesSuccessful);
 	addFieldsToGrid(linesSuccessful);//Add fields to the information panel
 	if (linesSuccessful < m_informaitonFieldLength)
 	{

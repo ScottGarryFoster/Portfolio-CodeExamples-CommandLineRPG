@@ -54,6 +54,7 @@ public:
 	void setWidth(int newWidth) { m_width = newWidth; }
 	void setHeight(int newHeight) { m_height = newHeight; }
 
+	bool hasInformationTab() { if (m_informationTabs == nullptr) return false; return true; }
 	InformationTab* addInformationTab(int locationX = 0, int locationY = 0);
 	InformationTab* getInformationTab();
 	void moveInformationTab(int locationX = 0, int locationY = 0);

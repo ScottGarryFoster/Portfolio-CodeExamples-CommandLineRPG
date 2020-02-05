@@ -33,8 +33,8 @@ void TextScene::Setup(Player* player, void* Passover)
 	p_haveSetup = true;
 	//Setup a link to the canvas
 	m_CanvasInformation->AddInformationPanel(p_player->getInfoPanel(), 0, CHARACTER_WIDTH - p_player->getInfoPanel()->getWidth(), 0);
-	m_tab->setSize(90, 3);
-	m_tab->getInformationTab()->setWidth(90);
+	m_tab->setSize(CHARACTER_WIDTH - p_player->getInfoPanel()->getWidth(), 3);
+	m_tab->getInformationTab()->setWidth(CHARACTER_WIDTH - p_player->getInfoPanel()->getWidth());
 	
 }
 

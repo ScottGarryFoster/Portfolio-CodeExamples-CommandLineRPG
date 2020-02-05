@@ -136,7 +136,15 @@ void CharCanvas::RedrawGrid()
 			if (m_informationPanelPosition[i] != nullptr)
 			{
 				if (safetyCheck(p_informationPanels[i]))//Does it actually exist?
+				{
 					AddGridToGrid(p_informationPanels[i]->outputPanel(), p_informationPanels[i]->getWidth(), p_informationPanels[i]->getHeight(), m_informationPanelPosition[i]->x, m_informationPanelPosition[i]->y);
+					if (p_informationPanels[i]->hasInformationTab())
+					{
+						const char** informationTab = p_informationPanels[i]->getInformationTab()->outputPanel();
+						if(informationTab != nullptr)
+							AddGridToGrid(informationTab, p_informationPanels[i]->getInformationTab()->getWidth(), p_informationPanels[i]->getInformationTab()->getHeight(), 0, 0);
+					}
+				}
 				else
 					p_informationPanels[i] = nullptr;//Something has deleted it so forget about it
 			}
